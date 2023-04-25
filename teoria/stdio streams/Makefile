@@ -5,39 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/25 18:05:48 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/04/25 19:14:48 by ryoshio-         ###   ########.fr        #
+#    Created: 2023/04/25 19:22:07 by ryoshio-          #+#    #+#              #
+#    Updated: 2023/04/25 19:22:24 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXEMPLO1 = exemplo1
-EXEMPLO2 = exemplo2
+NAME= exemplo
+
 
 CC = c++
 
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC1 = exemplo1.cpp  
-SRC2 = exemplo2.cpp
+SRC = main.cpp
 
-OBJ1 = $(SRC1:.cpp=.o)
-OBJ2 = $(SRC2:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-all: $(EXEMPLO1)
 
-$(EXEMPLO1): $(OBJ1) $(OBJ2)
-	$(CC) $(CFLAG) $(OBJ1) -o $(EXEMPLO1)
-	$(CC) $(CFLAG) $(OBJ2) -o $(EXEMPLO2)
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+
 
 run: all
-	./$(EXEMPLO1)
-	./$(EXEMPLO2)
+	./$(NAME)
 
 clean:
-	rm -rf $(OBJ1) $(OBJ2)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(EXEMPLO1) $(EXEMPLO2)
+	rm -rf $(NAME)
 
 re: fclean all
 

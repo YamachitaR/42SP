@@ -6,11 +6,11 @@
 #    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 22:51:56 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/05/17 12:05:51 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/05/17 12:04:17 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= megaphone
+NAME= my_phonebook
 
 CC = c++
 

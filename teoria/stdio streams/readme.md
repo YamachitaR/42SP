@@ -1,24 +1,23 @@
-
 # Sdio Streams
 
-~~~ c++
+```c++
 #include <iostream>
 
 int main (void)
 {
-	char	buff[512];
+    char    buff[512];
 
-	std::cout << "Hello, world !"  << std::endl;
+    std::cout << "Hello, world !"  << std::endl;
 
-	std::cout << "Entre com uma palavra: ";
-	std::cin >> buff;
-	std::cout << "Sua entrada foi:[" << buff << "]" << std::endl;
+    std::cout << "Entre com uma palavra: ";
+    std::cin >> buff;
+    std::cout << "Sua entrada foi:[" << buff << "]" << std::endl;
 
-	return (0);
+    return (0);
 }
-~~~
+```
 
-# Notação 
+# Notação
 
 - cout seria um "printf"
 - cin seria um "read" que ler as coisas do terminal

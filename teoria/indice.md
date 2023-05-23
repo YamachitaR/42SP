@@ -14,5 +14,6 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 1. [Visibilidade](./texto/visibilidade.md)
 1. [Classe VS estrutura](./texto/classVSestrutura.md)
 1. [Acessors](./texto/acessors.md) Seria a ideia do capsulamento (metodo Get e Set)  
-
-
+1. [Comparisons](./texto/comparisons.md)
+1. [non member attributes & functions](./texto/non_member.md)
+1. [pointers to members](./texto/pointer_to_members.md)

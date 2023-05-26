@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 20:53:15 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:08:54 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/05/22 21:21:17 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/05/26 17:10:23 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 #include <iostream>
-#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-int	main(int argc, char **argv)
+class PhoneBook
 {
-	std::string	input;
-	PhoneBook phonebook;
-	
-	while(1)
-	{
-		std::cout << "The program only accepts ADD, SEARCH and EXIT" << std::endl;
-		std::cin >> input;
-		if(input == "ADD")
-			phonebook.add( );
-		else if (input == "SEARCH")
-			phonebook.search();
-		else if (input == "EXIT")
-			return (0); 
-	}
-	return (0); 	
-}
+	private:
+		int _new;
+		int _amount;
+		Contact _contacts[8];
+		
+		int _check_number(std::string s);
+		int _check_string(std::string s);
+		int _check(int n, std::string s);
+		int	_atoi(std::string s);
+		void _message(int n);
+		
+	public:
+		PhoneBook(void);
+		~PhoneBook(void);
+		
+		void search(void);
+		void add(void);
+};
+#endif

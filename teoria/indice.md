@@ -17,3 +17,6 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 1. [Comparisons](./texto/comparisons.md)
 1. [non member attributes & functions](./texto/non_member.md)
 1. [pointers to members](./texto/pointer_to_members.md)
+
+## Modulo 01
+

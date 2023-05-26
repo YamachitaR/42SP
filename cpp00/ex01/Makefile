@@ -6,7 +6,7 @@
 #    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 22:51:56 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/05/17 12:04:17 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/05/26 17:09:26 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC = megaphone.cpp
+SRC = main.cpp Contact.cpp PhoneBook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

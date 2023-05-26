@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 20:53:15 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:08:54 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/05/22 21:20:59 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/05/26 17:08:09 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_H
+# define CONTACT_H 
 #include <iostream>
-#include "PhoneBook.hpp"
 
-int	main(int argc, char **argv)
+class Contact
 {
-	std::string	input;
-	PhoneBook phonebook;
-	
-	while(1)
-	{
-		std::cout << "The program only accepts ADD, SEARCH and EXIT" << std::endl;
-		std::cin >> input;
-		if(input == "ADD")
-			phonebook.add( );
-		else if (input == "SEARCH")
-			phonebook.search();
-		else if (input == "EXIT")
-			return (0); 
-	}
-	return (0); 	
-}
+	private:
+		std::string _first_name;
+		std::string _last_name;
+		std::string _nickname;
+		std::string _phone_numeber;
+		std::string _darkest_secret;
+		
+		void _printDisplay(std::string s);
+		
+	public:
+		void setContact(std::string s[5]);	
+		void printContact(void);
+		void printSearch(void);
+};
+
+#endif

@@ -1,24 +1,30 @@
-
-#include <iostream> 
-#include <typeinfo>
-
+#include <string>
 #include <iostream>
 
-class Exemplo {
-public:
-    void imprimirMensagem() {
-        std::cout << "Olá, mundo!" << std::endl;
-    }
+class Arvore
+{
+	private:
+		std::string _nome;
+
+	public:
+		Arvore(std::string nome) :_nome(nome)  //construtor
+		{
+			std::cout << "Arvore de" << this->_nome << " nasceu" << std::endl;
+		}
+
+		~Arvore() //Destrutor
+		{
+			std::cout << "Arvore de" << this->_nome << " morreu" << std::endl;
+		}
 };
 
-int main() {
-    void (Exemplo::*ponteiro_para_membro)();
+int main()
+{
+	Arvore		bob = Arvore("Araucaria");
+	Arvore*	    jim = new Arvore("Jatoba");
 
-    Exemplo obj;
-    ponteiro_para_membro = &Exemplo::imprimirMensagem;
 
-    (obj.*ponteiro_para_membro)();
+	delete jim; // jim is destroyed
 
-    return 0;
+	return (0); // bob is destroyed
 }
-

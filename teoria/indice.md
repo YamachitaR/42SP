@@ -20,3 +20,6 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 
 ## Modulo 01
 
+1. [new and delete](./texto/new_and_delete.md) Seria diferença entre usar **new** ao cria um Objeto (memoria heap) e **não usar new** (memoria stack).
+
+

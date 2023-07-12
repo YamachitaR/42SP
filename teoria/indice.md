@@ -1,4 +1,4 @@
-# Indrotução
+# Introdução
 
 Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/qingqingqingli/CPP)  e [ChatGPT](https://chat.openai.com/) 
 
@@ -21,8 +21,9 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 ## Modulo 01
 
 1. [new and delete](./texto/new_and_delete.md) Seria diferença entre usar **new** ao cria um Objeto (memoria heap) e **não usar new** (memoria stack).
-
 1. [references](./texto/references.md)
-
 1. [Filestream](./texto/Filestream.md)
-##
+
+## Modulo 02
+
+1. [Ad-hoc polymorphism](texto/Ad-hoc_polymorphism.md)

@@ -28,4 +28,4 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 
 1. [Ad-hoc polymorphism](./texto/Ad-hoc_polymorphism.md)
 
-1. [valor correspondente em ponto fixo]
+1. [valor correspondente em ponto fixo](./texto/ponto_fixo.md)

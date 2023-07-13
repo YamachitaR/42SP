@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 02:19:10 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/13 19:06:40 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/07/13 23:09:04 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void example1(void)
 {
-	Fixed a;
-	a.setRawBits(1);
-	std::cout << a.getRawBits() << std::endl;
+	Fixed const a( 3.14f );
+	std::cout << "Float to fixed-point: " << a.getRawBits() << std::endl;
+	std::cout << "Fixed-Point to float: " << a.toFloat()  << std::endl;
 }
-
 
 void pdf(void)
 {
@@ -39,14 +38,10 @@ void pdf(void)
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 }
 
-
-
 int main(void) {
 
 	std::cout << "===|Example 1|==" << std::endl;
 	example1();
-	
-
 
 	std::cout << std::endl << "===|PDF|==" << std::endl;
 	pdf();

@@ -27,5 +27,10 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 ## Modulo 02
 
 1. [Ad-hoc polymorphism](./texto/Ad-hoc_polymorphism.md)
-
 1. [valor correspondente em ponto fixo](./texto/ponto_fixo.md)
+1. [Operador ovelord](./texto/operador_ovelord.md)
+1. [Canonical form](https://github.com/qingqingqingli/CPP/wiki/Module02#canonical-form)
+
+## Modulo 03
+
+1.[inheritance](./texto/inheritance.md)

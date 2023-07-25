@@ -39,3 +39,4 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 
 1. [sub-typing polymorphism](./texto/sub-typingpolymorphism.md) polimorfismo de subtipos
 1. [Virtual](./texto/virtual.md)
+1. [Abstract classes and interfaces](./texto/Abstract_classes_and_interfaces.md)

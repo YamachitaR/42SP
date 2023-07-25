@@ -33,4 +33,9 @@ Este estudo é baseado nos videos 42, no [repositório:qli](https://github.com/q
 
 ## Modulo 03
 
-1.[inheritance](./texto/inheritance.md)
+1. [inheritance](./texto/inheritance.md)
+
+## Modulo 04
+
+1. [sub-typing polymorphism](./texto/sub-typingpolymorphism.md) polimorfismo de subtipos
+1. [Virtual](./texto/virtual.md)

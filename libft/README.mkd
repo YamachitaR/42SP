@@ -1,0 +1,15 @@
+# LIBFT 
+
+Aqui esta as bibliotecas criada durante o curso  da 42SP, alguns são proposto pela escola e alguns são feito pela necessidade conforme a complexividade do projeto. 
+
+No diretorio texto vou colocar informação importantes.
+
+
+# Ricardo do Futuro!
+
+Faça as seguintes coisas:
+
+- bonus do LIBFT
+- bonus da GNL
+- Tem funções escrita na GNL que esta de forma independete de outras funções, refaça coloque na pasta tools,
+- Tem funções de check argument do fractol que é interessante, entre outros. Pricipalmente funções de mlx.

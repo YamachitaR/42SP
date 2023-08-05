@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+         #
+#    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 22:02:27 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/07/04 17:48:26 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/08/04 22:18:15 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+
+%.o: %.cpp 
+	@$(CC) $(CFLAG) -c $< -o $@ 
 
 run: all
 	$(VALGRIND) ./$(NAME)

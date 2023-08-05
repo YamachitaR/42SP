@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:22:12 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/12 14:18:47 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:46:35 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 int main (int argc, char **argv)
 {
 	Check check(argc, argv);
+	if(check.getOk() == 0)
+		return (0);
 	Replace replace(argv[1], argv[2], argv[3]);
 	return (0);
 }

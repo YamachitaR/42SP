@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 02:24:11 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/12 14:51:12 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 23:05:34 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ std::string Replace::_readAll(char *file)
 	if(text.empty())
 	{
 		std::cout << "The file is empty!" << std::endl;
-		exit(1);
 	}
 	return (text);
 }
@@ -49,11 +48,11 @@ void Replace:: _newFile(std::string s, std::string name)
 {
 	std::ofstream fd;
 	
-	fd.open(name);
+	fd.open(name.c_str());
 	if(fd.fail())
 	{
 		std::cout << "Error creating file!" << std::endl;
-		exit(1);
+		return;
 	}
 	fd << s;
 	fd.close();

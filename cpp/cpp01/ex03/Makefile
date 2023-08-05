@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+         #
+#    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 22:02:27 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/07/04 20:53:06 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/08/04 22:19:35 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CFLAG = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
+HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
+
 VALGRIND = valgrind 
 
 OBJ = $(SRC:.cpp=.o)
@@ -26,6 +28,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADER)
+	@$(CC) $(CFLAG) -c $< -o $@ 
 
 run: all
 	$(VALGRIND) ./$(NAME)

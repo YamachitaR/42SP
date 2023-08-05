@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 03:21:57 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/23 00:22:34 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 23:20:49 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,8 +146,6 @@ void test_take_damage(void)
 
 void test_beRepaired(void)
 {
-	int amount;
-	
 	std::cout << "===|Test: method beRepaired|===" << std::endl;
 	
 	ClapTrap a("Ricardo");

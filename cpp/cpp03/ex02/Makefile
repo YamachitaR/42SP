@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+         #
+#    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 22:51:56 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/07/24 20:16:35 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/08/04 23:31:06 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,17 @@ VALGRIND = valgrind -s
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
+HEADER = ClapTrap.hpp ScavTrap.hpp
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HEADER)
+	@$(CC) $(CFLAG) -c $< -o $@ 
 
 run: all
 	$(VALGRIND) ./$(NAME)

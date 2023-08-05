@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 03:21:57 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/25 00:38:52 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 23:22:58 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,8 +146,6 @@ void test_take_damage(void)
 
 void test_beRepaired(void)
 {
-	int amount;
-	
 	std::cout << "===|Test: method beRepaired|===" << std::endl;
 	
 	ScavTrap a("Ricardo");

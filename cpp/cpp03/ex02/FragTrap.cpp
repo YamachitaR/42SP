@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:53:52 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/25 00:19:24 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 23:37:09 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ FragTrap::FragTrap(void): ClapTrap()
 	this->_energyPoints = 100;
 }
 
-FragTrap::FragTrap(std::string name):FragTrap()
+FragTrap::FragTrap(std::string name):ClapTrap(name)
 {
 	std::cout << "FragTrap: Constructor with parameter name called" << std::endl;
-	
-	this->_name = name;
+	this->_hitPoints = 100;
+	this->_attackDamage = 30;
+	this->_energyPoints = 100;
 }
 
-FragTrap::FragTrap(FragTrap const &fragtrap)
+FragTrap::FragTrap(FragTrap const &fragtrap):ClapTrap()
 {
 	std::cout << "FragTrap: Copy constructor called" << std::endl;
 	*this = fragtrap;
@@ -38,7 +39,6 @@ FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap: Destructor called" << std::endl;
 }
-
 
 FragTrap &FragTrap::operator=(FragTrap const &rhs)
 {

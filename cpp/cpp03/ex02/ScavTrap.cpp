@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 00:55:34 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/07/24 20:00:49 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 23:34:02 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ ScavTrap::ScavTrap(void): ClapTrap()
 	this->_energyPoints = 50;
 }
 
-ScavTrap::ScavTrap(std::string name):ScavTrap()
+ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
 	std::cout << "ScavTrap: Constructor with parameter name called" << std::endl;
-	
-	this->_name = name;
+	this->_hitPoints = 100;
+	this->_attackDamage = 20;
+	this->_energyPoints = 50;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &scavtrap)
+ScavTrap::ScavTrap(ScavTrap const &scavtrap):ClapTrap()
 {
 	std::cout << "ScavTrap: Copy constructor called" << std::endl;
 	*this = scavtrap;

@@ -10,16 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Dog.hpp"
 
-Dog::Dog(void):Animal("Dog")
+Dog::Dog(void):Animal()
 {
 	std::cout << "Dog: Default constructor called" << std::endl;
+	this->_type= "Dog";
+	this->_brain = new Brain();
 }
 
 Dog::Dog(std::string str):Animal(str)
 {
-	std::cout << "Dog: Constructor with parameter called" << std::endl;
+	std::cout << "Dog: Constructor with parameter type called" << std::endl;
+	this->_brain = new Brain();
 }
 
 Dog::Dog(Dog const &copy):Animal()
@@ -31,7 +35,9 @@ Dog::Dog(Dog const &copy):Animal()
 Dog::~Dog(void)
 {
 	std::cout << "Dog: Destructor called" << std::endl;
+	delete	this->_brain;
 }
+
 
 Dog &Dog::operator=(Dog const &rhs)
 {
@@ -40,11 +46,22 @@ Dog &Dog::operator=(Dog const &rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
+		this->_brain = rhs._brain;
 	}
 	return (*this);
 }
 
 void Dog::makeSound(void) const
 {
-    std::cout << "Au au au au au" << std::endl;
+	std::cout << "Woof woof woof!" << std::endl;
+}
+
+Brain *Dog::getBrain(void) const
+{
+	return(this->_brain);
+}
+
+void Dog::setBrain(Brain brain)
+{
+	this->_brain = &brain;
 }

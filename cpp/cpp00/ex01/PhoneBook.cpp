@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 21:21:11 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:09:59 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:12:30 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int PhoneBook::_check(int n, std::string s)
 
 int PhoneBook::_check_string(std::string s)
 {	
-	int i;
+	long unsigned int i;
 
 	if(s == "")
 		return (0);

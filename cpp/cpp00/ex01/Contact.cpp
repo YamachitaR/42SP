@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 21:21:04 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:07:39 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:11:57 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void Contact::printContact(void)
 
 void Contact::_printDisplay(std::string s)
 {
-	int i;
+	long unsigned int i;
 
 	i = 0;
 	while(i < 9)
@@ -50,7 +50,7 @@ void Contact::_printDisplay(std::string s)
 			std::cout << " ";
 		i ++;
 	}
-	if(10 == s.length())
+	if(10 ==  s.length())
 		std::cout << char(s[9]) << "|";
 	else if(10 < s.length())
 		std::cout << ".|";

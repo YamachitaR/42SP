@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/26 22:02:27 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/08/04 23:15:38 by ryoshio-         ###   ########.fr        #
+#    Created: 2023/04/12 22:51:56 by ryoshio-          #+#    #+#              #
+#    Updated: 2023/08/05 00:32:19 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,25 +16,24 @@ CC = c++
 
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-HEADER = Fixed.hpp
+VALGRIND = valgrind -s
 
-VALGRIND = valgrind 
+SRC = tests.cpp Account.cpp 
 
-SRC = main.cpp Fixed.cpp
+HEADER	= Account.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
 
-%.o: %.cpp $(HEADER)
-	@$(CC) $(CFLAG) -c $< -o $@ 
+
+$(NAME): $(OBJ) $(HEADER)
+	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
 
 run: all
 	$(VALGRIND) ./$(NAME)
-	
+
 clean:
 	rm -rf $(OBJ)
 
@@ -43,4 +42,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re run 

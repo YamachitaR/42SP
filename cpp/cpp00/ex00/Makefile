@@ -6,7 +6,7 @@
 #    By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 22:51:56 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/05/17 12:05:51 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/08/04 22:07:01 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
+
+%.o: %.cpp 
+	@$(CC) $(CFLAG) -c $< -o $@ 
 
 run: all
 	./$(NAME)

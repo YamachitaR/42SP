@@ -15,9 +15,11 @@
 WrongAnimal::WrongAnimal(void)
 {
 	std::cout << "WrongAnimal: Default constructor called" << std::endl;
-	this->_type= "WrongAnimal";	
+	this->_type= "WrongAnimal";
+	
 }
 
+	
 WrongAnimal::WrongAnimal(std::string str)
 {
 	std::cout << "WrongAnimal: Constructor with parameter type called" << std::endl;
@@ -34,6 +36,7 @@ WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << "WrongAnimal: Destructor called" << std::endl;
 }
+
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)
 {
@@ -55,6 +58,7 @@ void WrongAnimal::setType(std::string type)
 {
 	this->_type = type;
 }
+
 
 void WrongAnimal::makeSound(void) const
 {

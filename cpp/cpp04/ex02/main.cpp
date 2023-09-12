@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 03:11:57 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/09/08 02:08:01 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/09/08 02:18:19 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Array(void)
 	std::cout << "===|Array: |===" << std::endl;	
 	
 	int i;
-	Animal *animal[100];
+	AAnimal *animal[100];
 
 	i = 0;
 	while(i < 100)
@@ -178,9 +178,18 @@ void Cat_testCopy(void)
 	delete copyObj1;
 }
 
+void compilationError(void)
+{
+	std::cout << "===|makeSound: Test abstract class  |===" << std::endl;
+	WrongAnimal animal;
+	animal.setType("ok");
+
+	//AAnimal compilationError;
+	//compilationError.setType("ko");
+}
+
 int main(void)
 {
-	
 	Brain_OrthodoxCanonicalForm();
 	std::cout << "===| END |===" << std::endl << std::endl;
 	
@@ -198,6 +207,9 @@ int main(void)
 
 	Cat_testCopy();
 	std::cout << "===| END |===" << std::endl << std::endl;
+
+	compilationError();
+
 	
 	return (0);
 }

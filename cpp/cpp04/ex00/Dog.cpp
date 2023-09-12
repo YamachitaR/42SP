@@ -3,23 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 22:37:09 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/08/04 21:03:03 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/07/27 05:04:28 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/09/07 05:55:55 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void):Animal("Dog")
+Dog::Dog(void):Animal()
 {
 	std::cout << "Dog: Default constructor called" << std::endl;
-}
-
-Dog::Dog(std::string str):Animal(str)
-{
-	std::cout << "Dog: Constructor with parameter called" << std::endl;
+	this->_type= "Dog";
 }
 
 Dog::Dog(Dog const &copy):Animal()
@@ -32,6 +28,7 @@ Dog::~Dog(void)
 {
 	std::cout << "Dog: Destructor called" << std::endl;
 }
+
 
 Dog &Dog::operator=(Dog const &rhs)
 {
@@ -46,5 +43,5 @@ Dog &Dog::operator=(Dog const &rhs)
 
 void Dog::makeSound(void) const
 {
-    std::cout << "Au au au au au" << std::endl;
+	std::cout << "Woof woof woof!" << std::endl;
 }

@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 21:41:50 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/08/01 03:17:51 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/07/25 05:32:16 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/09/08 02:04:15 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void):_type("Animal")
+Animal::Animal(void)
 {
 	std::cout << "Animal: Default constructor called" << std::endl;
+	this->_type= "Animal";
 }
 
-Animal::Animal(std::string str):_type(str)
+Animal::Animal(std::string str)
 {
-	std::cout << "Animal: Constructor with parameter called" << std::endl;
+	std::cout << "Animal: Constructor with parameter type called" << std::endl;
+	this->_type = str;
 }
 
 Animal::Animal(Animal const &copy)
@@ -44,17 +46,17 @@ Animal &Animal::operator=(Animal const &rhs)
 	return (*this);
 }
 
-void Animal::makeSound(void) const
+std::string Animal::getType(void) const
 {
-    std::cout << "Animal Animal Animal" << std::endl;
-}
-
-std::string Animal::getType(void)const
-{
-    return (this->_type);
+	return (this->_type);
 }
 
 void Animal::setType(std::string type)
 {
-    this->_type = type;
+	this->_type = type;
+}
+
+void Animal::makeSound(void) const
+{
+	std::cout << "ANIMAL SOUND!" << std::endl;
 }

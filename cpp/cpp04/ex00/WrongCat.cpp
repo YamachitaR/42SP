@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 03:21:00 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/08/04 21:04:55 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/07/27 05:46:50 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/07/27 05:48:14 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void):WrongAnimal("Cat")
+WrongCat::WrongCat(void):WrongAnimal("WrongCat")
 {
 	std::cout << "WrongCat: Default constructor called" << std::endl;
 }
 
-WrongCat::WrongCat(std::string str):WrongAnimal(str)
-{
-	std::cout << "WrongCat: Constructor with parameter called" << std::endl;
-}
-
-WrongCat::WrongCat(WrongCat const &copy):WrongAnimal( )
+WrongCat::WrongCat(WrongCat const &copy):WrongAnimal()
 {
 	std::cout << "WrongCat: Copy constructor called" << std::endl;
 	*this = copy;
@@ -32,6 +27,7 @@ WrongCat::~WrongCat(void)
 {
 	std::cout << "WrongCat: Destructor called" << std::endl;
 }
+
 
 WrongCat &WrongCat::operator=(WrongCat const &rhs)
 {
@@ -46,5 +42,5 @@ WrongCat &WrongCat::operator=(WrongCat const &rhs)
 
 void WrongCat::makeSound(void) const
 {
-    std::cout << "Meow meow meow" << std::endl;
+	std::cout << "WrongCat sound!" << std::endl;
 }

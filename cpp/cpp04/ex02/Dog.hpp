@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/25 05:32:11 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/08/31 02:41:51 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/07/27 05:05:07 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/09/08 02:00:37 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Animal_HPP
-#define Animal_HPP
 
-#include <iostream>
+#ifndef Dog_HPP
+#define Dog_HPP
 
-class Animal
+#include "AAnimal.hpp"
+#include "Brain.hpp"
+
+class Dog: public AAnimal
 {
-	protected:
-		std::string _type;
+	private:
+		Brain *_brain;
 		
 	public:
-		Animal(void);
-		Animal(Animal const &copy);
-		Animal(std::string str);
-		virtual ~Animal(void);
+		Dog(void);
+		Dog(Dog const &copy);
+		~Dog(void);
 		
-		Animal &operator=(Animal const &rhs);
+		Dog &operator=(Dog const &rhs);
 
-		std::string getType(void) const;
-		void setType(std::string type);
+		void makeSound(void) const;
 
-		virtual void makeSound(void) const;
+		Brain *getBrain(void) const;
+		void setBrain(Brain brain);	
 };
 #endif

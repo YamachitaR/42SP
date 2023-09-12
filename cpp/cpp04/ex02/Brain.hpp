@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 05:17:28 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/09/08 02:06:56 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/09/06 03:45:49 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ class Brain
 
 		void setSameIdeas(std::string str);
 		
-		void sayIdeas(void) const;	
+		void sayIdeas(void) const;
+		
 };
 
 # endif 

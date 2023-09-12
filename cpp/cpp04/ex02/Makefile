@@ -6,32 +6,32 @@
 #    By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 22:51:56 by ryoshio-          #+#    #+#              #
-#    Updated: 2023/09/07 06:30:39 by ryoshio-         ###   ########.fr        #
+#    Updated: 2023/09/08 02:03:04 by ryoshio-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= ex00
+NAME= ex02
 
 CC = c++
 
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-VALGRIND = valgrind -s  --leak-check=full 
+VALGRIND = valgrind -s --leak-check=full 
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
-HEADER	= Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+HEADER	= AAnimal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
 
-%.o:	%.cpp $(HEADER)
-	@$(CC) $(CFLAG) -c $< -o $@ 
 
+%.o: %.cpp $(HEADER)
+	$(CC) $(CFLAG)  -c $< -o $@
 
 run: all
 	$(VALGRIND) ./$(NAME)

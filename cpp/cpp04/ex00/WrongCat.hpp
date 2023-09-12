@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 03:21:06 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/08/04 20:34:58 by ryoshio-         ###   ########.fr       */
+/*   Created: 2023/07/27 05:46:54 by ryoshio-          #+#    #+#             */
+/*   Updated: 2023/07/27 05:49:21 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ class WrongCat: public WrongAnimal
 {
 	public:
 		WrongCat(void);
-		WrongCat(std::string str);
 		WrongCat(WrongCat const &copy);
 		~WrongCat(void);
-
+		
 		WrongCat &operator=(WrongCat const &rhs);
 
-        void makeSound(void) const;
+		void makeSound(void) const;
 };
-
 #endif
+

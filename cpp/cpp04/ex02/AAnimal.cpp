@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 05:32:16 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/09/08 02:06:15 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/09/08 01:58:39 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal(void)
+AAnimal::AAnimal(void)
 {
-	std::cout << "Animal: Default constructor called" << std::endl;
-	this->_type= "Animal";
+	std::cout << "AAnimal: Default constructor called" << std::endl;
+	this->_type= "AAnimal";
 }
 
-Animal::Animal(std::string str)
+AAnimal::AAnimal(std::string str)
 {
-	std::cout << "Animal: Constructor with parameter type called" << std::endl;
+	std::cout << "AAnimal: Constructor with parameter type called" << std::endl;
 	this->_type = str;
 }
 
-Animal::Animal(Animal const &copy)
+AAnimal::AAnimal(AAnimal const &copy)
 {
-	std::cout << "Animal: Copy constructor called" << std::endl;
+	std::cout << "AAnimal: Copy constructor called" << std::endl;
 	*this = copy;
 }
 
-Animal::~Animal(void)
+AAnimal::~AAnimal(void)
 {
-	std::cout << "Animal: Destructor called" << std::endl;
+	std::cout << "AAnimal: Destructor called" << std::endl;
 }
 
-Animal &Animal::operator=(Animal const &rhs)
+
+AAnimal &AAnimal::operator=(AAnimal const &rhs)
 {
-	std::cout << "Animal: Copy assignment operator" << std::endl;
+	std::cout << "AAnimal: Copy assignment operator" << std::endl;
 
 	if (this != &rhs)
 	{
@@ -46,17 +47,12 @@ Animal &Animal::operator=(Animal const &rhs)
 	return (*this);
 }
 
-std::string Animal::getType(void) const
+std::string AAnimal::getType(void) const
 {
 	return (this->_type);
 }
 
-void Animal::setType(std::string type)
+void AAnimal::setType(std::string type)
 {
 	this->_type = type;
-}
-
-void Animal::makeSound(void) const
-{
-	std::cout << "ANIMAL SOUND!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 05:17:34 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/09/08 02:06:42 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/09/08 02:09:20 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Brain::~Brain(void)
 
 Brain &Brain::operator=(Brain const &rhs)
 {
-	
 	std::cout << "Brain: Copy assignment operator" << std::endl;
 
 	if (this != &rhs)
@@ -71,6 +70,10 @@ void Brain::setIdeas(const std::string *str)
 	while(++i < 100)
 		this->_ideas[i] = str[i];
 }
+
+
+
+
 
 void Brain::setSameIdeas(std::string str)
 {

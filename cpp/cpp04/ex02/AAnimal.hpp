@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 05:32:11 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/08/31 02:41:51 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/09/08 01:55:25 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Animal_HPP
-#define Animal_HPP
+#ifndef AAnimal_HPP
+#define AAnimal_HPP
 
 #include <iostream>
 
-class Animal
+class AAnimal
 {
 	protected:
 		std::string _type;
 		
 	public:
-		Animal(void);
-		Animal(Animal const &copy);
-		Animal(std::string str);
-		virtual ~Animal(void);
+		AAnimal(void);
+		AAnimal(AAnimal const &copy);
+		AAnimal(std::string str);
+		virtual ~AAnimal(void);
 		
-		Animal &operator=(Animal const &rhs);
+		AAnimal &operator=(AAnimal const &rhs);
 
 		std::string getType(void) const;
 		void setType(std::string type);
 
-		virtual void makeSound(void) const;
+		virtual void makeSound(void) const = 0;
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:48:32 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 05:03:44 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:21:00 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ struct Date;
 class BitcoinExchange{
 	private:
 		std::map<std::string, float> _dataBase;
+		bool _baseOk;
 	
 		bool _checkValueBitcoin(float value);
 		bool _checkValue(std::string str, std::string price);

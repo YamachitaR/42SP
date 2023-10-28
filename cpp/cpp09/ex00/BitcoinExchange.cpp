@@ -6,15 +6,22 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:48:20 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 05:43:22 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:37:47 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(void){
-	_initData("data.csv");
 	std::cout << "BitcoinExchange: Default constructor called" << std::endl;
+
+	_baseOk = false;
+	if(!_initData("data.csv")){
+		if(_initData("cpp_09/data.csv"))
+			_baseOk = true;
+	}
+	else
+		_baseOk = true;
 }
 
 BitcoinExchange::~BitcoinExchange(void){
@@ -27,7 +34,7 @@ bool BitcoinExchange::_initData(std::string str){
 	std::string		date, value, line;
 	
 	if(!checkFile(str.c_str()))
-		return(errorMessage("data.csv ???"));
+		return(false);
 
 	ifs.open(str.c_str());
 	
@@ -123,9 +130,9 @@ bool BitcoinExchange:: exchange(char *str){
 	size_t			pos;
 	std::string		date, value, line;
 	
-	if(!checkFile(str))
-		return(errorMessage("input file???"));
-
+	if(!_baseOk)
+		return(errorMessage("could not open data."));
+	
 	ifs.open(str);
 	
 	std::getline(ifs, line);
@@ -141,9 +148,11 @@ bool BitcoinExchange:: exchange(char *str){
 			date = strtrim(line.substr(0, pos));
 			value = strtrim(line.substr(pos + 1));
 			
+			
 			if(!_checkValue(date, value))
 				continue;
 			std::cout.precision(2);	
+		
 			std::cout << date << " => " << atof(value.c_str()) << " = " << _calcValue(date, atof(value.c_str())) << std::endl;
 		}
 	}
@@ -186,11 +195,11 @@ bool checkFile(const char  *file){
 	
 	fd.open(file);
 	if(fd.fail())
-		return(errorMessage("Not found file"));
+		return(false);
 
 	if(fd.peek()==EOF){
 		fd.close();
-		return(errorMessage("file is empty"));
+		return(false);
 	}
 	
 	fd.close();
@@ -261,7 +270,7 @@ bool isFloat(const std::string str){
 	
 	if(str.empty())
 		return(false);
-		
+	
 	i = 0;
 	if(str[i] == '+' || str[i] == '-'){
 		i ++;
@@ -271,16 +280,20 @@ bool isFloat(const std::string str){
 	}
 	point = 0; 	
 	while (i <  str.length()){
-		if(str[i] == '.' )
+		if(str[i] == '.' ){
 			point ++;
-		if(!std::isdigit(str[i]))
+			i ++;
+		}
+		if(!std::isdigit(str[i])){
 			return (false);
+		}
 		i ++;
 	}
-
-	if(point > 1)
+	if(point > 1){
 		return (false);
+	}
 		
+		 
 	return(true);
 }
 
@@ -322,10 +335,11 @@ std::string strtrim(const std::string& str) {
     while (start < end && std::isspace(str[start])) {
         start++;
     }
-
-	while (end > start && str[end - 1] == '\n'){
+	
+	while (end > start && (str[end - 1]=='\n')){
         end--;
     }
+
     while (end > start && std::isspace(str[end - 1])) {
         end--;
     }

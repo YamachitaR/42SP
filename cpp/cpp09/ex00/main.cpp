@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:55:36 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 05:14:30 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:35:41 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv){
 		return (1);
 	
 	if(!checkFile(argv[1]))
-		return(1);
+		return(errorMessage("could not open file."));
 		
 	BitcoinExchange obj;
 	obj.exchange(argv[1]);

@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:48:20 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 06:54:27 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:37:10 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs){
 	}
 	return (*this);
 } 
-
-
-
-
 
 bool BitcoinExchange::_initData(std::string str){
 	std::ifstream	ifs;
@@ -190,10 +186,6 @@ bool BitcoinExchange:: exchange(char *str){
 }
 
 
-
-
-
-
 Date atd(std::string str){
 	Date date;
 
@@ -283,6 +275,13 @@ bool isInteger(std::string str){
 	if(str.empty())
 		return(false);
 		
+	if(str[i] == '+' || str[i] == '-'){
+		i ++;
+		if(!std::isdigit(str[i]))
+			return (false);
+		i ++;
+	}
+		
 	while (i <  str.length()){
 		if(!std::isdigit(str[i]))
 			return (false);
@@ -319,16 +318,13 @@ bool isFloat(const std::string str){
 		}
 		i ++;
 	}
+	
 	if(point > 1){
 		return (false);
 	}
-		
-		 
+	
 	return(true);
 }
-
-
-
 
 Date today(void)
 {

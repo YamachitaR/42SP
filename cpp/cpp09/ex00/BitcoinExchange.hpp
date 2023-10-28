@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:48:32 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 06:21:00 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:54:05 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ class BitcoinExchange{
 		
 	public: 
 		BitcoinExchange(void); 	
-		~BitcoinExchange(void); 	
+		BitcoinExchange(std::string path); 
+		BitcoinExchange(BitcoinExchange const &copy);
+		~BitcoinExchange(void);
+
+		BitcoinExchange &operator=(BitcoinExchange const &rhs);
 		
 		bool exchange(char *str);
 };

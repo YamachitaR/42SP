@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:48:20 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 06:37:47 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:54:27 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,39 @@ BitcoinExchange::BitcoinExchange(void){
 		_baseOk = true;
 }
 
+BitcoinExchange::BitcoinExchange(std::string path){
+	std::cout << "BitcoinExchange: Constructor with parameter type called" << std::endl;
+
+	if(_initData(path)){
+		_baseOk = true;
+	}
+	else
+		_baseOk = false;
+}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy){
+	std::cout << "BitcoinExchange: Copy constructor called" << std::endl;
+	*this = copy;
+}
+
 BitcoinExchange::~BitcoinExchange(void){
 	std::cout << "BitcoinExchange: Destructor called" << std::endl;
 }
+
+
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs){
+	std::cout << "BitcoinExchange: Copy assignment operator" << std::endl;
+	if (this != &rhs)
+	{
+		this->_dataBase = rhs._dataBase;
+		this->_baseOk = rhs._baseOk;
+	}
+	return (*this);
+} 
+
+
+
+
 
 bool BitcoinExchange::_initData(std::string str){
 	std::ifstream	ifs;

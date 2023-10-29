@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 07:10:50 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 16:43:34 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/28 22:02:02 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ RPN::~RPN(void){
 RPN& RPN::operator=(RPN const &rhs){
 	std::cout << "RPN: Copy assignment operator" << std::endl;
 	if (this != &rhs){
-		(void)rhs;
+		
 	}
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 07:12:55 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/29 18:16:24 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:02:21 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,22 +110,25 @@ std::vector<int> PmergeMe::sortVector(const char **argv){
     
     if(isSort(v))
         return (v);
-    
+     
     _sortPair(v);
     
     if(isSort(v))
         return (v);
-
+    
     _createChainPend(v, vchain, vpend);
     _sortChain(vchain, vpend);
-
+    
     n = vpend.size();
     index = _indexJacobsthal(n);
+   
     i = 0;
+    
+
     while(i < n){
         value = vpend[index[i] - 1];
         j = 0;
-        while(vchain[j] < value && vchain[j])
+        while(vchain[j] < value && j < (int)vchain.size())
             j++;
         vchain.insert(vchain.begin() + j, value);
         i ++;
@@ -149,7 +152,7 @@ std::deque<int> PmergeMe::sortDeque(const char **argv){
     
     if(isSort(d))
         return (d);
-        
+   
     _sortPair(d);
 
     if(isSort(d))
@@ -164,7 +167,7 @@ std::deque<int> PmergeMe::sortDeque(const char **argv){
     while(i < n){
         value = dpend[index[i] - 1];
         j = 0;
-        while(dchain[j] < value && dchain[j])
+        while(dchain[j] < value && j < (int) dchain.size())
             j++;
         dchain.insert(dchain.begin() + j, value);
         i ++;

@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 07:12:55 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/28 23:03:15 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/29 00:36:31 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,37 @@ PmergeMe &PmergeMe::operator=(PmergeMe const &rhs)
 }
 
 void PmergeMe::sortVector(void){ // tem que fazer tramento aqui dentro 
-    std::vector<int> vector = {1, 2, 3, 4, 5};
+    std::vector<int> v;
+
+    v.push_back(5);
+    v.push_back(4);
+    v.push_back(3);
+    v.push_back(2);
+    v.push_back(1);
     
-    int i;
+    iter(v.data(), v.size(), printElement<int>);
+    std::cout << std::endl;
+    sortPair(v);
+     
+    iter(v.data(), v.size(), printElement<int>);
+    std::cout << std::endl;
+} 
+
+
+void PmergeMe::sortDeque(void){ // tem que fazer tramento aqui dentro 
+    std::deque<int> d;
+
+    d.push_back(5);
+    d.push_back(4);
+    d.push_back(3);
+    d.push_back(2);
+    d.push_back(1);
     
-    // forma o par 
-    i = 0;
-    while(i < vector.size() - 1){
-        if(vector.size() % 2 == 1  && i >= vector.size() - 2)
-            break;
-        
-        
-    }
-    
+    sortPair(d);
 
     
 } 
+
 
 
 
@@ -63,4 +78,10 @@ int  jacobsthal(int n)
 	if (n == 1)
 		return (1);
 	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
+}
+
+
+bool errorMessage(std::string str){
+	std::cout << "Error: " << str << std::endl;
+	return(false);
 }

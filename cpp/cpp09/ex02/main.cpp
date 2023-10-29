@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 07:13:18 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/29 18:46:35 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:46:58 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,27 @@ int main(int argc, const char **argv) {
     timeDeq = double(clock() - start) / CLOCKS_PER_SEC * 1000;
     
     std::cout << "Before: ";
-    iter(argv + 1, argc - 1, printElement);
-    std::cout << std::endl;
-     
+    if(argc < 11 ){
+        iter(argv + 1, argc - 1, printElement);
+        std::cout << std::endl;
+    }else{
+        iter(argv + 1, 11, printElement);
+        std::cout << " [...]" << std::endl;
+    }
+    
+    std::cout << "After: ";
+    if(argc < 11 ){
+        iter(vec.data(), vec.size(), printElement);
+        std::cout << std::endl;
+    }else{
+        iter(vec.data(), 11, printElement);
+        std::cout << " [...]" << std::endl;
+    }
     std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector<int>: " << timeVec << " us" << std::endl;
     std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque<int>: " << timeDeq << " us" << std::endl;
     
+    if(!(isSort(vec) && isSort(deq)))
+        errorMessage("It is not correct!");
     return 0;
 }
 

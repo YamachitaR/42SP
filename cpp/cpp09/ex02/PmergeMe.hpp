@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 07:13:01 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/29 06:08:35 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:16:53 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,64 @@ class PmergeMe
 
 		PmergeMe &operator=(PmergeMe const &rhs);
 
-        void sortVector(void); //fazer o tratamento dentro 
-        void sortDeque(void);
+        std::vector<int> sortVector(const char **argv); 
+        std::deque<int> sortDeque(const char **argv);
 };
 
 int  jacobsthal(int n);
 bool errorMessage(std::string str);
+bool checkArgc(const int argc);
+bool checkArgv(const int argc, const char **argv);
+bool isIntegerPositive(std::string str);
 
 template <typename T>
-void swap(T &a, T &b);
+void swap(T &a, T &b)
+{
+    T tmp;
+    
+    tmp = a;
+    a = b;
+    b = tmp;
+}
 
 template <typename T>
-void iter(T *array,  size_t n,  void (*f)(T));
+void iter(T *array,  size_t n,  void (*f)(T) )
+{
+	size_t i;
+	
+	if(!array || !f)
+		return;
+	
+	i = 0;
+	while(i < n)
+	{
+		f(array[i]);
+		i ++;
+	}
+}
 
 template <typename T>
-void iter(const std::deque<T>& deq,  size_t n, void (*f)(T));
+void iter(const std::deque<T>& deq,  size_t n, void (*f)(T)) {
+    size_t i = 0;
+    while(i < n){
+        f(deq[i]);
+        i++;
+    }
+}
 
 template <typename T>
-void printElement(T element);
+void printElement(T element) {
+    std::cout << element << " ";
+}
 
 template <typename T>
-bool isSort(T &a);
-
-
+bool isSort(T &a){
+    size_t i = 1;
+    while(i < a.size()) {
+        if(a[i-1] > a[i])
+            return(false);
+        i++;
+    }
+    return(true);
+}
 #endif

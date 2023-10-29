@@ -6,7 +6,7 @@
 /*   By: ryoshio- <ryoshio-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 07:12:55 by ryoshio-          #+#    #+#             */
-/*   Updated: 2023/10/29 06:51:17 by ryoshio-         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:16:24 by ryoshio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ std::vector<int> PmergeMe::_indexJacobsthal(size_t n){
     int jaco2;
     
     while( index.size() < n){
-        jaco1 = jacobsthal(i);
+        jaco1 = jacobsthal(i); 
         jaco2 = jacobsthal(i + 1);
         
         while(jaco2  > jaco1){
@@ -95,23 +95,27 @@ std::vector<int> PmergeMe::_indexJacobsthal(size_t n){
     return(index);
 }
 
-void PmergeMe::sortVector(void){ // tem que fazer tramento aqui dentro 
+std::vector<int> PmergeMe::sortVector(const char **argv){ 
     std::vector<int> v;
     std::vector<int> vchain;
     std::vector<int> vpend;
     std::vector<int> index;
     int n, i, j, value;
 
-    i = 5;
-    while( i > 0){
-        
-        v.push_back(i);
-        i--;
+    i = 1;
+    while(argv[i]){
+        v.push_back(atoi(argv[i]));
+        i++;
     }
     
-    iter(v.data(), v.size(), printElement<int>);
-    std::cout << std::endl;
+    if(isSort(v))
+        return (v);
+    
     _sortPair(v);
+    
+    if(isSort(v))
+        return (v);
+
     _createChainPend(v, vchain, vpend);
     _sortChain(vchain, vpend);
 
@@ -126,42 +130,33 @@ void PmergeMe::sortVector(void){ // tem que fazer tramento aqui dentro
         vchain.insert(vchain.begin() + j, value);
         i ++;
     }
-    
-    std::cout <<"|" <<std::endl;
-    iter(vchain.data(), vchain.size(), printElement<int>);
-    std::cout <<"|" <<std::endl;
-     iter(vpend.data(), vpend.size(), printElement<int>);
-    std::cout << std::endl;
-       std::cout << std::endl;
-    iter(index.data(), index.size(), printElement<int>);
-   
+
+    return (vchain);
 } 
 
-
-void PmergeMe::sortDeque(void){ // tem que fazer tramento aqui dentro 
-
+std::deque<int> PmergeMe::sortDeque(const char **argv){
     std::deque<int> d;
     std::deque<int> dchain;
     std::deque<int> dpend;
-     std::vector<int> index;
+    std::vector<int> index;
     int n, i, j, value;
 
+    i = 1;
+    while(argv[i]){
+        d.push_back(atoi(argv[i]));
+        i++;
+    }
     
-
-    d.push_back(5);
-    d.push_back(4);
-    d.push_back(3);
-    d.push_back(2);
-    d.push_back(1);
-    
+    if(isSort(d))
+        return (d);
+        
     _sortPair(d);
+
+    if(isSort(d))
+        return (d);
+    
     _createChainPend(d, dchain, dpend);
     _sortChain(dchain, dpend);
-
-iter(d, d.size(), printElement<int>);
-    
-
-
 
     n = dpend.size();
     index = _indexJacobsthal(n);
@@ -174,21 +169,8 @@ iter(d, d.size(), printElement<int>);
         dchain.insert(dchain.begin() + j, value);
         i ++;
     }
-
-
-    
-    std::cout << std::endl;
-    iter(dchain, dchain.size(), printElement<int>);
-   std::cout << std::endl;
-    iter(dpend, dpend.size(), printElement<int>);
-     std::cout << std::endl;
-    iter(index.data(), index.size(), printElement<int>);
-
+    return (dchain);
 } 
-
-
-
-
 
 
 int jacobsthal(int n) {
@@ -204,53 +186,43 @@ bool errorMessage(std::string str){
 	return(false);
 }
 
-template <typename T>
-void swap(T &a, T &b)
-{
-    T tmp;
-    
-    tmp = a;
-    a = b;
-    b = tmp;
+bool checkArgc(const int argc){
+	if(argc < 2)
+		return (errorMessage("invalid number of arguments! \nExample: ./PmergeMe \"1 2 3\" "));
+	return (true);
 }
 
-template <typename T>
-void iter(T *array,  size_t n,  void (*f)(T) )
-{
+bool checkArgv(const int argc, const char **argv){
+    int  i;
+
+    i = 1;
+    while(i < argc){
+        if(!isIntegerPositive(argv[i]))
+            return (errorMessage("Invalid argument"));
+        i ++;
+    }
+	return (true);
+}
+
+bool isIntegerPositive(std::string str){
 	size_t i;
-	
-	if(!array || !f)
-		return;
-	
+
 	i = 0;
-	while(i < n)
-	{
-		f(array[i]);
+	
+	if(str.empty())
+		return(false);
+		
+	if(str[i] == '+'){
+		i ++;
+		if(!std::isdigit(str[i]))
+			return (false);
 		i ++;
 	}
-}
-
-template <typename T>
-void iter(const std::deque<T>& deq,  size_t n, void (*f)(T)) {
-    size_t i = 0;
-    while(i < n) {
-        f(deq[i]);
-        i++;
-    }
-}
-
-template <typename T>
-void printElement(T element) {
-    std::cout << element << " ";
-}
-
-template <typename T>
-bool isSort(T &a){
-    size_t i = 1;
-    while(i < a.size()) {
-        if(a[i-1] > a[i])
-            return(false);
-        i++;
-    }
-    return(true);
+		
+	while (i <  str.length()){
+		if(!std::isdigit(str[i]))
+			return (false);
+		i ++;
+	}
+	return (true);
 }
